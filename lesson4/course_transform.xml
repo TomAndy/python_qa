@@ -4,17 +4,17 @@
 <xsl:template match="/">
   <html>
   <body>
-  <h2><xsl:value-of select="course/name"/></h2>
+  <title><xsl:value-of select="course/name"/></title>
     <table border="1">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-      </tr>
       <xsl:for-each select="course/modules/module">
-      <tr>
-        <td><xsl:value-of select="@id"/></td>
-        <td><xsl:value-of select="text()"/></td>
-      </tr>
+      <article>
+        <h1><xsl:value-of select="text()"/></h1>
+        <xsl:for-each select="examples/example">
+                <ul>
+                        <li><xsl:value-of select="text()"/></li>
+                </ul>
+        </xsl:for-each>
+      </article>
       </xsl:for-each>
     </table>
   </body>
