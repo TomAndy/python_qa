@@ -15,12 +15,17 @@ def main():
     dText = response.text.split()
     search_word = 'price'
     i=0
+    pr=''
     for text_word in dText:
         if findWholeWord(search_word)(text_word):
-            print(''.join(c for c in text_word if c.isdigit()))
+            # print(''.join(c for c in text_word if c.isdigit()))
+            for s in text_word:
+                if s.isdigit():
+                    pr=pr+''.join(s)
+            print 'Price is: ',pr
             break
-        i=i+1
-
+    if not pr:
+        print('Price for product is absent')
 
 if __name__ == '__main__':
     main()
