@@ -13,15 +13,27 @@ def main():
     #     print(child)
 
     for titles in root.iter('title'):
+        print('Title:')
+        print('%%%%%%%%%%%%%%%%%%%')
         print(titles.text.strip())
-    print('===================')
+        print('===================')
+        print('Authors:')
+        print('@@@@@@@@@@@@@@@@@@@@@@')
+        for autor in root[0].iter('author'):
+            print(autor.text.strip())
+        print('---------------------------')
+        print('Categories:')
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+        for categ in root[0].iter('category'):
+            print(categ.text.strip())
+        print('===================')
 
-    for authors in root.iter('author'):
-        print(authors.text.strip())
-    print('------------------')
-
-    for categories in root.iter('category'):
-        print(categories.text.strip())
+    # for authors in root.iter('author'):
+    #     print(authors.text.strip())
+    # print('------------------')
+    #
+    # for categories in root.iter('category'):
+    #     print(categories.text.strip())
 
 
 if __name__ == '__main__':
