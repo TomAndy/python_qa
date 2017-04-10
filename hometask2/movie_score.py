@@ -67,8 +67,9 @@ if __name__ == '__main__':
     movieList = readDataFromFileIntoList(path_to_input_file)
     movieData = getMovieData(movieList)  # get dict of movie_title with metadata from input file
     invalid_titles = getInvalidTitles(movieData)
-    invalid_metascore = getMovieScore(movieData)[0]
-    good_movies = getMovieScore(movieData)[1]
+    differentMovies = getMovieScore(movieData)
+    invalid_metascore = differentMovies[0]   #getMovieScore(movieData)[0]
+    good_movies = differentMovies[1]       #getMovieScore(movieData)[1]
 
     with open(path_to_invalid_metascore_file,'w') as invalid_m:
         for item in invalid_metascore:
