@@ -3,7 +3,7 @@ import omdb
 import csv
 
 
-path_to_input_file = 'movie_names2'
+path_to_input_file = 'movie_names'
 path_to_good_movies_file = 'rating.csv'
 path_to_invalid_titles_file = 'invalid_titles.txt'
 path_to_invalid_metascore_file = 'invalid_metascore.txt'
@@ -36,6 +36,7 @@ def getMovieScore(movieData):
     good_movies = []
     i=0
     for key, value in movieData.iteritems():
+        movieFound = False
         i = i + 1
         print i
         if value == '':
@@ -49,8 +50,9 @@ def getMovieScore(movieData):
                     else:
                         good_movies.append({key : imdb_metascore})
                     break
-    # print len(invalid_metascore)
-    # print len(good_movies)
+            if movieFound == False:
+                invalid_metascore.append(key)
+
     return invalid_metascore, good_movies
 
 
