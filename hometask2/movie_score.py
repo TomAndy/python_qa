@@ -44,6 +44,7 @@ def getMovieScore(movieData):
         else:
             for movieMetaData in value:
                 if movieMetaData['title'].encode('utf-8') == key and (movieMetaData['type'] == 'movie' or movieMetaData['type'] == 'series'):
+                    movieFound = True
                     imdb_metascore = omdb.imdbid(movieMetaData['imdb_id'])['metascore'] or ''
                     if imdb_metascore == 'N/A' or not imdb_metascore.isdigit():
                         invalid_metascore.append(key)
